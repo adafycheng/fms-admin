@@ -2,9 +2,15 @@
 
 > This is a web application for maintaining records in a Fitness Management System.
 
+## Pre-requisites
+
+1. If MS SQL Server is not installed, it is easier to install it using a docker image.  In this case, Docker Engine is required.  [Install Docker Engine if necessary](https://docs.docker.com/engine/install/).
+2. [SQLCMD Utility Tool is installed](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15).
+3. [Maven is installed](https://maven.apache.org/install.html).
+
 ## Setup
 
-1. In a Terminal (Linux / Mac OS) / Command Prompt (Windows), start MSSQL.
+1. In a Terminal (Linux / Mac OS) / Command Prompt (Windows), start MS SQL Server in Docker.
 
     ```sh
     docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=P@ssw0rd" \
