@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.microsoft.sqlserver.jdbc.SQLServerDriver">
+		</property>
+		 
+		<property name="url"
+			value="jdbc:sqlserver://localhost:1433;databaseName=fitness;">
+		</property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="P@ssw0rd"></property>
+
+	</bean>
+	
+	<bean id="sessionFactory"
+        class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+
+        <property name="dataSource">
+            <ref bean="dataSource" />
+        </property> 
+        <property name="hibernateProperties">
+            <props>
+            	<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+        
+        <property name="mappingResources">
+            <list>
+                <value>Card.hbm.xml</value>
+                <value>Qicai.hbm.xml</value>
+                <value>User.hbm.xml</value>
+                <value>Zhijiao.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+
+	<!-- hibernateTemplate bean  -->
+    <bean class="org.springframework.orm.hibernate3.HibernateTemplate" id="hibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+
+    <bean id="applicationContextProvder" class="com.fms.util.ApplicationContextProvider"/>
+     
+    <!-- CardDao  -->
+    <bean id="cardDao" class="com.fms.dao.CardDAO">
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+
+    <!-- QicaiDao  -->
+    <bean id="qicaiDao" class="com.fms.dao.QicaiDAO">
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    
+    <!-- UserDao  -->
+    <bean id="userDao" class="com.fms.dao.UserDAO">
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+
+    <!-- ZhijiaoDao  -->
+    <bean id="zhijiaoDao" class="com.fms.dao.ZhijiaoDAO">
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>    
+    
+</beans>

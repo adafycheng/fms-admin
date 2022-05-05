@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC   
+     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
+     "http://struts.apache.org/dtds/struts-2.0.dtd">
+     
+     
+<struts>
+	<constant name="struts.devMode" value="true" />
+    <package name="default" namespace="/" extends="struts-default">
+        <global-results>
+            <result name="exception">/common/exception.jsp</result>
+            <result name="succeed1">/success/success.jsp</result>
+            <result name="succeed">/success/succeed.jsp</result>
+        </global-results>
+        
+        <action name="adminLogin" class="com.fms.action.UserAction" method="adminLogin">
+             <result name="error">/admin/login.jsp</result>
+             <result name="success">/admin/index.jsp</result>
+        </action>
+        
+        
+        
+        <action name="userPwEdit" class="com.fms.action.UserAction" method="userPwEdit">
+        </action>
+        <action name="userReg" class="com.fms.action.UserAction" method="userReg">
+        </action>
+        <action name="userXiugai" class="com.fms.action.UserAction" method="userXiugai">
+        </action>
+        <action name="userLogin" class="com.fms.action.UserAction" method="userLogin">
+             <result name="success">/index.jsp</result>
+             <result name="error">/index.jsp</result>
+        </action>
+        <action name="userLogout" class="com.fms.action.UserAction" method="userLogout">
+             <result name="success">/index.jsp</result>
+        </action>
+        <action name="userAdd" class="com.fms.action.UserAction" method="userAdd">
+        </action>
+        <action name="delUser" class="com.fms.action.UserAction" method="delUser">
+        </action>
+        <action name="userManage" class="com.fms.action.UserAction" method="userManage">
+             <result name="success">/admin/user/userManage.jsp</result>
+        </action>
+        <action name="huiyuanManage" class="com.fms.action.UserAction" method="huiyuanManage">
+             <result name="success">/admin/huiyuan/huiyuanManage.jsp</result>
+        </action>
+        <action name="huiyuanAdd" class="com.fms.action.UserAction" method="huiyuanAdd">
+        </action>
+        <action name="huiyuanDel" class="com.fms.action.UserAction" method="huiyuanDel">
+        </action>
+        <action name="huiyuanSearch" class="com.fms.action.UserAction" method="huiyuanSearch">
+             <result name="success">/admin/huiyuan/huiyuanManage.jsp</result>
+        </action>
+        
+        
+        
+        
+        <action name="cardAdd" class="com.fms.action.CardAction" method="cardAdd">
+        </action>
+        <action name="cardDel" class="com.fms.action.CardAction" method="cardDel">
+        </action>
+        <action name="cardManage" class="com.fms.action.CardAction" method="cardManage">
+            <result>/admin/card/cardManage.jsp</result>
+        </action>
+        
+        
+        
+        <action name="qicaiAdd" class="com.fms.action.QicaiAction" method="qicaiAdd">
+        </action>
+        <action name="qicaiDel" class="com.fms.action.QicaiAction" method="qicaiDel">
+        </action>
+        <action name="qicaiManage" class="com.fms.action.QicaiAction" method="qicaiManage">
+           <result>/admin/qicai/qicaiManage.jsp</result>
+        </action>
+        
+        
+        <action name="zhijiaoAdd" class="com.fms.action.ZhijiaoAction" method="zhijiaoAdd">
+        </action>
+        <action name="zhijiaoDel" class="com.fms.action.ZhijiaoAction" method="zhijiaoDel">
+        </action>
+        <action name="zhijiaoManage" class="com.fms.action.ZhijiaoAction" method="zhijiaoManage">
+           <result>/admin/zhijiao/zhijiaoManage.jsp</result>
+        </action>
+    </package>
+</struts>
